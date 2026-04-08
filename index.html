@@ -13,6 +13,11 @@
 .cc-body{contain:layout style;}
 /* Composite layer untuk scroll area */
 .scroll-area{transform:translateZ(0);}
+  .cat-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
   </style>
 </head>
 <body ontouchstart="">
@@ -246,6 +251,36 @@
 
 </div>
 </div>
+  <script>
+// Fungsi ini dipisah agar kebal dari error pada teks materi
+function toggleCat(id) {
+    var body = document.getElementById('body-' + id);
+    var chev = document.getElementById('chev-' + id);
+    if (!body) return;
+
+    if (body.style.maxHeight && body.style.maxHeight !== '0px') {
+        // Tutup Menu
+        body.style.maxHeight = null;
+        body.style.paddingTop = '0';
+        body.style.paddingBottom = '0';
+        if (chev) chev.style.transform = 'rotate(0deg)';
+    } else {
+        // Buka Menu
+        body.style.display = 'block'; // Pastikan elemen tidak tersembunyi
+        body.style.maxHeight = body.scrollHeight + 100 + 'px';
+        body.style.paddingTop = '4px';
+        body.style.paddingBottom = '8px';
+        if (chev) chev.style.transform = 'rotate(-180deg)';
+    }
+}
+
+// Otomatis buka kategori pertama saat web dimuat
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {
+        toggleCat('konsep');
+    }, 200);
+});
+</script>
 <script>
 var S={done:{},bk:{},topic:null,fontSize:1,recent:[]};
 var fmt=n=>n===0?'Rp0':'Rp'+Math.round(Math.abs(n)).toLocaleString('id-ID');
