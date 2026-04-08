@@ -49,6 +49,21 @@ h1, h2, h3, h4, .home-title, .cat-name, .tc-title, .cc-title, .dss-logo-name {
 .cc-body{contain:layout style;}
 /* Composite layer untuk scroll area */
 .scroll-area{transform:translateZ(0);}
+    /* ==================================================== */
+/* Menghilangkan blok warna saat Glosarium diklik       */
+/* ==================================================== */
+.glos-item {
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none !important;
+}
+
+.glos-item:focus, 
+.glos-item:active {
+    background-color: inherit !important; 
+    outline: none !important;
+    box-shadow: none !important;
+}
+/* ==================================================== */
   </style>
 </head>
 <body ontouchstart="">
