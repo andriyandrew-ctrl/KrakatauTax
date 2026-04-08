@@ -3,22 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0">
-  <title>Krakatau Tax — Portal Pajak Karyawan</title>
+  <title>Krakatau Tax — Portal Edukasi Pajak Karyawan</title>
   <meta name="theme-color" content="#011D3E">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
   <style>
-      /* ==================================================== */
-/* Menghilangkan blok warna merah saat Glosarium diklik */
+     /* ==================================================== */
+/* MENGHILANGKAN EFEK BLOK WARNA SENTUHAN SATU LAYAR    */
 /* ==================================================== */
-.glos-item {
+* {
     -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
 }
 
-.glos-item:active, 
-.glos-item:focus,
-.glos-item:hover {
-    background-color: var(--surface, #ffffff) !important; 
-    box-shadow: none !important;
+html, body, .view, .glos-modal, .glos-modal-inner, .glos-item {
+    -webkit-tap-highlight-color: transparent !important;
 }
 /* ==================================================== */
     /* ========================================= */
