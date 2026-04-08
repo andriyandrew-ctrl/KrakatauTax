@@ -7,6 +7,20 @@
   <meta name="theme-color" content="#011D3E">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
   <style>
+      /* ==================================================== */
+/* Menghilangkan blok warna merah saat Glosarium diklik */
+/* ==================================================== */
+.glos-item {
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+.glos-item:active, 
+.glos-item:focus,
+.glos-item:hover {
+    background-color: var(--surface, #ffffff) !important; 
+    box-shadow: none !important;
+}
+/* ==================================================== */
     /* ========================================= */
 /* KODE PENGUBAH FONT & UKURAN KRAKATAU TAX  */
 /* ========================================= */
@@ -49,21 +63,6 @@ h1, h2, h3, h4, .home-title, .cat-name, .tc-title, .cc-title, .dss-logo-name {
 .cc-body{contain:layout style;}
 /* Composite layer untuk scroll area */
 .scroll-area{transform:translateZ(0);}
-    /* ==================================================== */
-/* Menghilangkan blok warna saat Glosarium diklik       */
-/* ==================================================== */
-.glos-item {
-    -webkit-tap-highlight-color: transparent !important;
-    outline: none !important;
-}
-
-.glos-item:focus, 
-.glos-item:active {
-    background-color: inherit !important; 
-    outline: none !important;
-    box-shadow: none !important;
-}
-/* ==================================================== */
   </style>
 </head>
 <body ontouchstart="">
