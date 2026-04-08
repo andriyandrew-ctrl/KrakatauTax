@@ -1375,9 +1375,8 @@ function toggleCat(id) {
 
 // Opsional: Buka otomatis kategori pertama saat web dimuat
 document.addEventListener("DOMContentLoaded", function() {
-    setTimeout(function() {
-        toggleCat('konsep');
-    }, 300);
+    // Baris toggleCat dihapus atau dimatikan agar menu tertutup saat awal load
+    renderGlos('');
 });
 // ==========================================
 // FUNGSI UNTUK KALKULATOR ASET TETAP
