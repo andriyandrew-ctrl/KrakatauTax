@@ -1305,6 +1305,34 @@ document.addEventListener("DOMContentLoaded", function() {
     toggleCat('pphop');
     renderGlos('');
 });
+  // Fungsi untuk membuka dan menutup sub-menu kategori di Beranda
+function toggleCat(id) {
+    var body = document.getElementById('body-' + id);
+    var chev = document.getElementById('chev-' + id);
+    if (!body) return;
+    
+    // Jika menu sedang terbuka, maka tutup
+    if (body.style.maxHeight && body.style.maxHeight !== '0px') {
+        body.style.maxHeight = null;
+        body.style.paddingTop = '0';
+        body.style.paddingBottom = '0';
+        if (chev) chev.style.transform = 'rotate(0deg)';
+    } 
+    // Jika menu sedang tertutup, maka buka
+    else {
+        body.style.maxHeight = body.scrollHeight + 60 + 'px'; // +60px untuk jarak aman
+        body.style.paddingTop = '4px';
+        body.style.paddingBottom = '8px';
+        if (chev) chev.style.transform = 'rotate(-180deg)';
+    }
+}
+
+// Opsional: Buka otomatis kategori pertama saat web dimuat
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {
+        toggleCat('konsep');
+    }, 300);
+});
 </script>
 </body>
 </html>
