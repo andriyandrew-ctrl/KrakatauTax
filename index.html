@@ -1379,6 +1379,35 @@ document.addEventListener("DOMContentLoaded", function() {
         toggleCat('konsep');
     }, 300);
 });
+// ==========================================
+// FUNGSI UNTUK KALKULATOR ASET TETAP
+// ==========================================
+function catSetMetode(metode, btn) {
+    // 1. Cari elemen bungkus (container) dari tombol-tombol ini
+    var container = btn.parentElement;
+
+    // 2. Hapus class 'active' dari semua tombol di dalam container tersebut
+    var btns = container.querySelectorAll('.ci-seg-btn');
+    btns.forEach(function(b) {
+        b.classList.remove('active');
+    });
+
+    // 3. Tambahkan class 'active' ke tombol yang baru saja diklik
+    btn.classList.add('active');
+
+    // 4. Otomatis panggil fungsi hitung ulang agar hasil di bawahnya langsung berubah
+    // (Fungsi utama kalkulator aset tetap biasanya bernama catHitung)
+    if (typeof catHitung === 'function') {
+        catHitung();
+    } else {
+        // Jika namanya berbeda, kita paksa trigger perubahan pada input harga
+        var inputHarga = document.getElementById('cat-harga') || document.querySelector('.calc-content-area input');
+        if (inputHarga) {
+            var event = new Event('input', { bubbles: true });
+            inputHarga.dispatchEvent(event);
+        }
+    }
+}
 </script>
 </body>
 </html>
