@@ -7,21 +7,6 @@
   <meta name="theme-color" content="#011D3E">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
   <style>
-     /* ==================================================== */
-/* MENGHILANGKAN EFEK BLOK WARNA SENTUHAN SATU LAYAR    */
-/* ==================================================== */
-* {
-    -webkit-tap-highlight-color: transparent !important;
-    -webkit-touch-callout: none !important;
-}
-
-html, body, .view, .glos-modal, .glos-modal-inner, .glos-item {
-    -webkit-tap-highlight-color: transparent !important;
-}
-/* ==================================================== */
-    /* ========================================= */
-/* KODE PENGUBAH FONT & UKURAN KRAKATAU TAX  */
-/* ========================================= */
 :root {
     --f-body: 'Outfit', sans-serif !important;
     --f-head: 'Outfit', sans-serif !important;
@@ -61,6 +46,25 @@ h1, h2, h3, h4, .home-title, .cat-name, .tc-title, .cc-title, .dss-logo-name {
 .cc-body{contain:layout style;}
 /* Composite layer untuk scroll area */
 .scroll-area{transform:translateZ(0);}
+/* ==================================================== */
+/* OVERRIDE TEMA INDUSTRIAL KRAKATAU STEEL (BANNER)     */
+/* ==================================================== */
+.home-header { 
+    background: linear-gradient(145deg, #1A252F 0%, #2C3E50 100%) !important; /* Warna Baja Gelap */
+}
+.home-header::before { 
+    content: ''; position: absolute; inset: 0; 
+    background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 2px, transparent 2px, transparent 8px); 
+    z-index: 0; pointer-events: none;
+}
+.home-header::after {
+    content: ''; position: absolute; bottom: -30%; right: -20%; 
+    width: 300px; height: 300px; 
+    background: radial-gradient(circle, rgba(200, 16, 46, 0.5) 0%, transparent 70%); /* Pendaran Besi Panas / Merah KS */
+    z-index: 0; pointer-events: none;
+}
+.home-header > * { position: relative; z-index: 2; }
+/* ==================================================== */
   </style>
 </head>
 <body ontouchstart="">
@@ -88,25 +92,60 @@ h1, h2, h3, h4, .home-title, .cat-name, .tc-title, .cc-title, .dss-logo-name {
 
 <div class="view active" id="view-home">
   <div class="scroll-area">
-    <div class="home-header">
-      <div class="hero-illustration">
-        <svg viewBox="0 0 180 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g class="hi-doc" transform-origin="100 70"><rect x="80" y="20" width="72" height="90" rx="8" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"></rect><rect x="88" y="34" width="42" height="4" rx="2" fill="rgba(255,255,255,0.5)"></rect><rect x="88" y="44" width="32" height="3" rx="1.5" fill="rgba(255,255,255,0.3)"></rect><rect x="88" y="52" width="38" height="3" rx="1.5" fill="rgba(255,255,255,0.3)"></rect><rect x="88" y="60" width="28" height="3" rx="1.5" fill="rgba(255,255,255,0.25)"></rect><circle cx="116" cy="87" r="10" fill="rgba(91,158,173,0.6)" stroke="rgba(255,255,255,0.4)" stroke-width="1.2"></circle><path d="M111 87 L114.5 91 L121 83" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></g>
-          <g class="hi-coin" transform-origin="55 55"><circle cx="55" cy="55" r="22" fill="rgba(214,208,202,0.25)" stroke="rgba(214,208,202,0.5)" stroke-width="1.5"></circle><circle cx="55" cy="55" r="16" fill="rgba(214,208,202,0.15)" stroke="rgba(214,208,202,0.35)" stroke-width="1"></circle><text x="55" y="60" text-anchor="middle" font-size="14" font-weight="bold" fill="rgba(255,255,255,0.7)" font-family="system-ui">Rp</text></g>
-          <g class="hi-calc" transform-origin="60 145"><rect x="38" y="125" width="44" height="52" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"></rect><rect x="44" y="131" width="32" height="12" rx="4" fill="rgba(91,158,173,0.4)"></rect><text x="68" y="141" text-anchor="end" font-size="7" fill="rgba(255,255,255,0.8)" font-family="monospace">12.5%</text><circle cx="48" cy="153" r="3.5" fill="rgba(255,255,255,0.3)"></circle><circle cx="60" cy="153" r="3.5" fill="rgba(255,255,255,0.3)"></circle><circle cx="72" cy="153" r="3.5" fill="rgba(36,78,36,0.6)"></circle><circle cx="48" cy="165" r="3.5" fill="rgba(255,255,255,0.3)"></circle><circle cx="60" cy="165" r="3.5" fill="rgba(255,255,255,0.3)"></circle><circle cx="72" cy="165" r="3.5" fill="rgba(255,255,255,0.3)"></circle></g>
-          <g class="hi-ring" transform-origin="145 155"><circle cx="145" cy="155" r="18" fill="none" stroke="rgba(91,158,173,0.4)" stroke-width="2" stroke-dasharray="4 3"></circle><circle cx="145" cy="155" r="9" fill="rgba(91,158,173,0.2)" stroke="rgba(255,255,255,0.25)" stroke-width="1"></circle></g>
-          <circle cx="38" cy="108" r="3" fill="rgba(255,255,255,0.2)"></circle><circle cx="165" cy="40" r="4" fill="rgba(91,158,173,0.4)"></circle><circle cx="155" cy="110" r="2.5" fill="rgba(214,208,202,0.4)"></circle>
+<div class="home-header">
+      
+      <div class="hero-illustration" style="position: absolute; right: -10px; top: 10px; width: 180px; height: 180px; opacity: 0.9; pointer-events: none; z-index: 1;">
+        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          
+          <g transform="translate(45, 35)">
+            <path d="M0 80 L0 40 L25 25 L25 40 L50 25 L50 40 L75 25 L75 80 Z" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-linejoin="round"/>
+            <rect x="12" y="50" width="8" height="30" fill="rgba(255,255,255,0.12)"/>
+            <rect x="33" y="50" width="8" height="30" fill="rgba(255,255,255,0.12)"/>
+            <rect x="54" y="50" width="8" height="30" fill="rgba(255,255,255,0.12)"/>
+            <rect x="62" y="-15" width="10" height="40" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+            <circle cx="67" cy="-25" r="6" fill="rgba(255,255,255,0.08)"/>
+          </g>
+
+          <g transform="translate(155, 140)">
+            <circle cx="0" cy="0" r="22" fill="none" stroke="rgba(255, 75, 75, 0.35)" stroke-width="5" stroke-dasharray="7 5"/>
+            <circle cx="0" cy="0" r="14" fill="rgba(255, 75, 75, 0.1)" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+            <circle cx="0" cy="0" r="5" fill="rgba(255,255,255,0.25)"/>
+          </g>
+
+          <g transform="translate(15, 135)">
+            <rect x="0" y="0" width="36" height="46" rx="4" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+            <rect x="5" y="6" width="26" height="10" rx="2" fill="rgba(255, 75, 75, 0.25)"/>
+            <rect x="7" y="22" width="5" height="5" rx="1" fill="rgba(255,255,255,0.12)"/>
+            <rect x="15" y="22" width="5" height="5" rx="1" fill="rgba(255,255,255,0.12)"/>
+            <rect x="23" y="22" width="5" height="5" rx="1" fill="rgba(255,255,255,0.12)"/>
+            <rect x="7" y="32" width="5" height="5" rx="1" fill="rgba(255,255,255,0.12)"/>
+            <rect x="15" y="32" width="5" height="5" rx="1" fill="rgba(255,255,255,0.12)"/>
+            <rect x="23" y="32" width="5" height="5" rx="1" fill="rgba(255, 75, 75, 0.25)"/>
+          </g>
+
+          <path d="M110 50 L140 50" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-linecap="round"/>
+          <path d="M120 60 L140 60" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-linecap="round"/>
         </svg>
       </div>
-      <div class="home-logo"><div class="logo-icon">🏭</div><span class="logo-name">Krakatau Tax</span></div>
-      <div class="home-title">Portal Pajak<br><strong>Karyawan</strong></div>
-      <div class="home-sub">PPh · PPN · SPT · Coretax · TP</div>
-      <div class="hero-stats">
+
+      <div style="position: relative; z-index: 2; display: flex; align-items: center; gap: 8px; margin-bottom: 20px;">
+        <div style="font-size: 1.3rem;">🏭</div>
+        <span style="font-family: var(--f-head); font-size: 1.1rem; font-weight: 800; color: #fff; letter-spacing: 0.5px;">KRAKATAU <strong style="color: #FF4B4B;">TAX</strong></span>
+      </div>
+      
+      <div class="home-title" style="position: relative; z-index: 2;">Portal Pajak<br><strong style="color: #FF4B4B;">Karyawan</strong></div>
+      
+      <div class="home-sub" style="position: relative; z-index: 2;">PPh · PPN · SPT · Coretax · TP</div>
+      
+      <div class="hero-stats" style="position: relative; z-index: 2;">
         <div class="hero-stat"><span class="hero-stat-num">20+</span><span class="hero-stat-lbl">Topik</span></div>
         <div class="hero-stat"><span class="hero-stat-num">10+</span><span class="hero-stat-lbl">Kalkulator</span></div>
-        <div class="hero-stat"><span class="hero-stat-num">2026</span><span class="hero-stat-lbl">Up to date</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">2026</span><span class="hero-stat-lbl">Updated</span></div>
       </div>
-      <svg class="hero-wave" viewBox="0 0 430 32" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 32 L0 18 Q107 5 215 13 Q322 21 430 9 L430 32 Z" fill="#f5f7f9"></path></svg>
+      
+      <svg class="hero-wave" viewBox="0 0 430 32" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="0,32 430,32 430,0 0,28" fill="#f5f7f9"></polygon>
+      </svg>
     </div>
 
     <div class="home-search"><span class="si">🔍</span><input type="text" id="homeSearch" placeholder="Cari topik, istilah, atau aturan..." oninput="searchHomeDebounced(this.value)" autocomplete="off"></div>
